@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 int menuMain();
-char userIn;
+char userIn[2];
 bool running = true;
 
 int menuMain()
@@ -20,8 +20,8 @@ int menuMain()
 
 	do
 	{
-		scanf(" %c", &userIn);
-		switch (userIn)
+		scanf_s(" %c", &userIn[0], 1);
+		switch (userIn[0])
 		{
 			case 'a':
 			case 'A':
@@ -37,6 +37,7 @@ int menuMain()
 			case 'C':
 				printf("Viewing Inventory List\n");
 				break;
+				
 
 			case 'x':
 			case 'X':
@@ -45,6 +46,7 @@ int menuMain()
 
 			default:
 				printf("Invalid Input, please try again.\n");
+				scanf("%*[^\n]%*1[\n]");
 				continue;
 		}
 		break;//exits the do while loop when a valid input is selected.
