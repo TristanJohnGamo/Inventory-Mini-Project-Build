@@ -16,11 +16,12 @@ int menuMain()
 	printf("[B] Update Inventory Item\n");
 	printf("[C] View Inventory List\n");
 	printf("[X] Exit System\n\n");
-	printf("Please Enter your desired function:");
+	printf("Please enter your desired function:");
 
 	do
 	{
 		scanf_s(" %c", &userIn[0], 1);
+		scanf("%*[^\n]%*1[\n]"); //ignores all other buffering inputs aside from the first character.
 		switch (userIn[0])
 		{
 			case 'a':
@@ -37,7 +38,7 @@ int menuMain()
 			case 'C':
 				printf("Viewing Inventory List\n");
 				break;
-				
+				 
 
 			case 'x':
 			case 'X':
@@ -46,7 +47,6 @@ int menuMain()
 
 			default:
 				printf("Invalid Input, please try again.\n");
-				scanf("%*[^\n]%*1[\n]");
 				continue;
 		}
 		break;//exits the do while loop when a valid input is selected.
